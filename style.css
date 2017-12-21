@@ -3,7 +3,7 @@
 }
 
 .description {
-  font-size: 1.5em;
+  font-size: 1.3em;
   color: darkgreen;
 }
 
@@ -11,14 +11,23 @@
   font-size: 2em;
 }
 
-#counter {
+#totalEarnedAmount {
   font-size: 1.5em;
 }
 
-.earn {
+.earnLabel {
   font-size: 1.5em;
 }
 
-.time, #time {
+.timeLabel, #time {
   font-size: 1.5em;
+}
+
+#toBeAppeared {
+  display: none;
+}
+
+.error {
+  color: red;
+  display: none;
 }

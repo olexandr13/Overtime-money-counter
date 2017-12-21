@@ -3,22 +3,24 @@
 
 <div class="wrapper">
     <p class="header" align="center">Money counter</p>
-    <div id="disappered">
+    <div id="toBeDisappeared">
         <p class="description">Enter your month salary in USD and click RUN</p>
         <input type="checkbox" id="overtimeCheckbox" checked>
         <label for="overtimeCheckbox">Overtime (x1.25)</label>
-        <input type="number" id="salary" placeholder="1000" value="1000">
         <br>
         <br>
-        <button id="run">Run</button>
+        <input type="number" id="salary" placeholder="Example: 1000"> <button id="run">Run</button>
+        <br>
+        <p class="error"></p>
         <br>
         <br>
     </div>
-    <p id="salaryValue">
-    <br>
-    <p class="earn">You earn</p>
-    <p id="counter"></p>
-    <p class="time">You are working (h:m:s)</p>
-    <p id="time"></p>
+    <div id="toBeAppeared">
+        <p id="salaryAndOvertimeValues"></p>
+        <p class="earnLabel">You have earned</p>
+        <p id="totalEarnedAmount"></p>
+        <p class="timeLabel">You are working (h:m:s)</p>
+        <p id="time"></p>
+    </div>
 </div>
 <script src="main.js"></script>
