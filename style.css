@@ -31,3 +31,7 @@
   color: red;
   display: none;
 }
+
+img {
+  cursor: pointer;
+}

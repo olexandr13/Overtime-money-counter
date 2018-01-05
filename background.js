@@ -7,8 +7,8 @@ chrome.browserAction.onClicked.addListener(function(tab) {
             tabId: tab.id,
             type: 'popup',
             focused: true,
-            width: 350,
-            height: 350,
+            width: 250,
+            height: 400,
             top: 100,
             left: 1500
         });
