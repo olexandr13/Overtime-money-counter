@@ -35,3 +35,16 @@
 img {
   cursor: pointer;
 }
+
+#ICEwrapper {
+  text-align: center;
+}
+
+#iceText {
+  font-size: 2em;
+  color: blue;
+}
+
+#iceTimer {
+  font-size: 2.2em;
+}

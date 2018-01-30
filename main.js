@@ -39,27 +39,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function countTotalMoneyAmountAndTimeToBeDisplayedAndAddDisplayInHTML() {
         currentDate = new Date();
-        totalEarnedMoneyToBeDisplayed = (currentDate-startDate)/1000*moneyAmountToAddEachSecond;
+        totalEarnedMoneyToBeDisplayed = (currentDate - startDate) / 1000 * moneyAmountToAddEachSecond;
         pElForMoneyCounter.innerHTML = '$ ' + roundPlus(totalEarnedMoneyToBeDisplayed, 2, false);
         secondsAmountFromStart = (currentDate - startDate) / 1000;
         timeCounter.innerHTML = convertTimeToPrettyFromat(secondsAmountFromStart);
     }
 
-    document.getElementById("run").addEventListener("click", function() {
+    document.getElementById("run").addEventListener("click", function () {
         startDate = new Date();
         overtimeCheckboxIsChecked = document.getElementById('overtimeCheckbox').checked;
         var salaryInput = document.getElementById('salary');
         salary = parseInt(salaryInput.value);
-        if(salary <= 0 || isNaN(salary)) {
+        if (salary <= 0 || isNaN(salary)) {
             pElForError.innerHTML = 'Enter valid salary value';
             pElForError.style.display = 'inline';
-            pElForError.style.color = 'red';
             return;
         }
-        if(salary > 10000) {
-            pElForError.innerHTML = 'Good joke. Ha-ha';
+        if (salary > 10000) {
+            pElForError.innerHTML = 'Likely it\'s not true';
             pElForError.style.display = 'inline';
-            pElForError.style.color = 'green';
             return;
         }
         document.getElementById("toBeDisappeared").style.display = 'none';
@@ -86,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (pauseAndPlay.src === window.location.origin + '/play.png') {
             pauseAndPlay.src = window.location.origin + '/pause.png';
             pauseStopTime = new Date();
-            totalTimeOnPause = pauseStopTime-pauseStartTime;
+            totalTimeOnPause = pauseStopTime - pauseStartTime;
             startDate.setTime(startDate.getTime() + totalTimeOnPause);
             trigger = setInterval(function () {
                 countTotalMoneyAmountAndTimeToBeDisplayedAndAddDisplayInHTML(moneyAmountToAddEachSecond);
@@ -94,4 +92,30 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+//    ICE timer
+    var countDownDate = new Date("Feb 6, 2018 10:00:00").getTime();
+    // var countDownDate = new Date("Jan 26, 2018 18:08:05").getTime();
+    var x = setInterval(function () {
+        var now = new Date().getTime();
+
+        var difference = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("iceTimer").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+        // If the count down is finished, write some text
+        if (difference < 0) {
+            clearInterval(x);
+            var elToDelete = document.getElementById("iceText");
+            document.getElementById("ICEwrapper").removeChild(elToDelete);
+            document.getElementById("iceTimer").innerHTML = '<span style="color:red">I</span><span style="color:green">C</span><span style="color:blue">E</span> <p>show has started!</p>';
+            document.getElementById("iceTimer").style.fontSize = "2em";
+        }
+    }, 1000);
 });
